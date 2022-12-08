@@ -1,0 +1,68 @@
+<div class="mb-4">
+	<div class="mt-3 py-2 py-md-5 px-2 rounded">
+    <div class="d-flex flex-wrap align-items-center">
+      <div class="col-12 col-md-6">
+        <h1 class="mt-3">{{ crop.cropName }}</h1>
+        <h3 class="text-muted">{{ crop.scientificName }}</h3>
+      </div>
+      <img class="col-12 col-md-6 order-first order-md-last mx-auto me-md-0 crop-info-img" ng-src="{{crop.cropImage}}" />
+    </div>
+  </div>
+  <div class="mt-3">
+    <div class="bg-success w-100 p-2 text-white d-flex justify-content-between align-items-center">
+      <h4 class="m-0">Info</h4>
+      <div class="d-flex">
+        <a class="btn btn-link text-white" ng-href="{{ crop.cropLink }}" target="_blank">Visit Wiki</a>
+        <div class="dropdown">
+          <button class="btn btn-link dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Options
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" ng-href="#!/crop-wizard/{{crop.id}}">Edit</a></li>
+            <li><button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#delete-modal">Delete</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="mt-4 row row-cols-1 row-cols-md-2 row-cols-lg-4 mb-3 text-center g-2">
+        <div class="col">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Time until first harvest</h5>
+              <h2 class="card-text text-success">{{ crop.medianDaysToFirstHarvest }}</h2>
+              <h4 class="card-text">days after planting</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body text-center d-flex flex-column align-items-center justify-content-center">
+              <h5 class="card-title">Time until last harvest</h5>
+              <h2 class="card-text text-success">{{ crop.medianDaysToLastHarvest }}</h2>
+              <h4 class="card-text">days after planting</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body text-center d-flex flex-column align-items-center justify-content-center">
+              <h5 class="card-title">Average lifespan</h5>
+              <h2 class="card-text text-success">{{ crop.medianLifespan }}</h2>
+              <h4 class="card-text">days</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body text-center d-flex flex-column align-items-center justify-content-center">
+              <h5 class="card-title">{{ crop.perennial ? "Perennial" : "Annual"}}</h5>
+              <h4 class="card-text">{{ crop.perennial ? "living more than two years" : "living and reproducing in a single year or less"}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <delete-modal></delete-modal>
+</div>

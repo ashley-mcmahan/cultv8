@@ -1,0 +1,123 @@
+<div class="mx-auto mb-4">
+  <h3 class="py-3">{{ isUpdating ? 'Update Crop' : 'Create Crop' }}</h3>
+  <form name="cropForm" ng-submit="cropForm.$valid && submitCrop()">
+    <div class="mb-3">
+      <label for="nameInput" class="form-label">Name*</label>
+      <input
+        class="form-control"
+        id="nameInput"
+        aria-describedby="nameHelp"
+        ng-model="crop.cropName"
+        required
+      />
+      <div id="nameHelp" class="form-text">
+        Enter the most standard and general use name for the crop.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="scientificNameInput" class="form-label"
+        >Scientific Name*</label
+      >
+      <input
+        class="form-control"
+        id="scientificNameInput"
+        aria-describedby="scientificNameHelp"
+        ng-model="crop.scientificName"
+        required
+      />
+      <div id="scientificNameHelp" class="form-text">
+        Enter the accepted scientific name for the crop.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="imageInput" class="form-label">Image Link*</label>
+      <input
+        class="form-control"
+        id="imageInput"
+        aria-describedby="imageHelp"
+        ng-model="crop.cropImage"
+        required
+      />
+      <div id="imageHelp" class="form-text">
+        Enter a working link to an image for the crop.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="linkInput" class="form-label"
+        >External Information Link*</label
+      >
+      <input
+        class="form-control"
+        id="linkInput"
+        aria-describedby="linkHelp"
+        ng-model="crop.cropLink"
+        required
+      />
+      <div id="linkHelp" class="form-text">
+        Enter a working link to external information about the crop.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="firstHarvestInput" class="form-label"
+        >Days to First Harvest*</label
+      >
+      <input
+        class="form-control"
+        id="firstHarvestInput"
+        type="number"
+        aria-describedby="firstHarvestHelp"
+        ng-model="crop.medianDaysToFirstHarvest"
+        ng-pattern="/^\d+$/"
+        required
+      />
+      <div id="firstHarvestHelp" class="form-text">
+        How many days from planting to average first harvest?
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="lastHarvestInput" class="form-label"
+        >Days to Last Harvest*</label
+      >
+      <input
+        class="form-control"
+        id="lastHarvestInput"
+        type="number"
+        aria-describedby="lastHarvestHelp"
+        ng-model="crop.medianDaysToLastHarvest"
+        ng-pattern="/^\d+$/"
+        required
+      />
+      <div id="lastHarvestHelp" class="form-text">
+        How many days from planting to average last harvest?
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="lifespanInput" class="form-label">Lifespan*</label>
+      <input
+        class="form-control"
+        id="lifespanInput"
+        type="number"
+        aria-describedby="lifespanHelp"
+        ng-model="crop.medianLifespan"
+        ng-pattern="/^\d+$/"
+        required
+      />
+      <div id="lifespanHelp" class="form-text">
+        How many days is the average lifespan of the crop?
+      </div>
+    </div>
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="perennialCheck"
+        ng-model="crop.perennial"
+      />
+      <label class="form-check-label" for="perennialCheck">Perennial?</label>
+    </div>
+    <div class="my-3 text-secondary">
+      <small>* Input field is required.</small>
+    </div>
+    <button type="submit" class="btn btn-success" ng-disabled="cropForm.$invalid || !cropForm.$dirty">{{ isUpdating ? 'Update' : 'Create' }}</button>
+  </form>
+</div>

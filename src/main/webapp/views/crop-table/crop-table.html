@@ -1,0 +1,31 @@
+<div class="mb-4">
+  <div class="mt-3 py-5 px-2 rounded">
+    <h1>Crops</h1>
+    <p>View the crops in our database!</p>
+    <p>
+      While we try to maintain a wide variety of crops to read about. Feel free
+      to add more crops as you see fit!
+    </p>
+    <a ng-href="#!/crop-wizard" class="btn btn-success">Add</a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Wiki</th>
+        <th scope="col">More Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in crops">
+        <th scope="row">{{$index + 1}}</th>
+        <td><img ng-src="{{row.cropImage}}" class="crop-table-img" /></td>
+        <td>{{row.cropName}}</td>
+        <td><a ng-href="{{row.cropLink}}" target="_blank">Link</a></td>
+        <td><a ng-href="#!/crop-info/{{row.id}}">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
